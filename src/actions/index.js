@@ -2,6 +2,7 @@ import axios from 'axios';
 import { API_KEY } from '../config/config'
 
 export const FETCH_POSTS = 'fetch_posts';
+export const FETCH_POST = 'fetch_post';
 export const CREATE_POST = 'create_post';
 
 
@@ -23,5 +24,14 @@ export function createPost(values, callback) {
   return {
     type: CREATE_POST,
     payload: request
-  }
+  };
+}
+
+export function fetchPost(id) {
+  const request = axios.get(`${ROOT_URL}/posts/${id}?key=${API_KEY}`);
+
+  return {
+    type: FETCH_POST.
+    payload: request
+  };
 }
